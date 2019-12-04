@@ -7,7 +7,7 @@ close all;
 
 order = 80;
 
-if(1)
+if(0)
     for order=50:5:120
         
         %nb zeros, and exactly na poles.
@@ -23,16 +23,17 @@ if(1)
     
 end
 
-if(0)
-    na = 7;
-    [b,a] = stmcb(test_signal,x,0,na);
+if(1)
+    order = 80;
+    [d1,p1] = aryule(test_signal,order);
     figure;
-    [H1,w1] = freqz(b,a);
-    freqz(b,a);
-         
-    title("Frequency response STMCB method - denominator order = " + num2str(na));
-    zplane(b,a);
-    title("Z plane for na = 7");    
+    freqz(sqrt(p1),d1);
+    title("Frequency response aryule method - denominator order = " + num2str(order));
+    figure;
+    zplane(sqrt(p1),d1);
+    title("Z plane for order = 80");    
+    figure;
+    
     
     
 end
