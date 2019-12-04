@@ -16,13 +16,12 @@ if(1)
     figure;
     zplane(sqrt(p1),d1);
     title("Z plane for order = 80");    
-    figure;
-    transferFunction=tf(sqrt(p1),d1);
-    figure(); stem(transferFunction);
-    title("h(n) aryule method - denominator order = 100");
+    figure(); impz(sqrt(p1),d1);
+    title("h(n) aryule method - denominator order = 80");
 
 end
 
 
 return;
 
+%% Cross corr
