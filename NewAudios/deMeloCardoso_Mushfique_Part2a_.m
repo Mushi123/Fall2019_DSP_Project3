@@ -28,16 +28,13 @@ filteredOriginalMusic = filter(sqrt(p1),d1,originalMusic);
 % sound(filteredOriginalMusic,FsOriginalMusic);
 % audiowrite('filteredOriginalMusic.wav', filteredOriginalMusic,48e3);
 
-[MusicWith, FsMusicWith]=audioread('MusicWithout.wav');
+[MusicWith, FsMusicWith]=audioread('MusicWith.wav');
 
-outputNoiseCancel = MusicWith-MusicWith;
+outputNoiseCancel = filteredOriginalMusic(1324,:)-MusicWith;
 
 sound(outputNoiseCancel,48e3);
 
-
-
-
-
-
 return;
+
+clear sound;
 
