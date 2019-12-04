@@ -11,10 +11,9 @@ if(1)
     
     N = 48000*30;
     random_signal = rand(N,1);
-    sound(random_signal,48000);
     audiowrite('OriginalTestSignal48.wav', random_signal,48e3);
-    
     a = audiorecorder(48e3,16,1);
+    sound(random_signal,48000);    
     recordblocking(a,30);
     b = getaudiodata(a);
     audiowrite('testSignal48.wav', b,48e3);
@@ -28,9 +27,8 @@ if(0)
     close all;
     
     [y, Fs] = audioread('music4816.wav');
-    sound(y,Fs);
-    
     a = audiorecorder(48e3,16,1);
+    sound(y,Fs);   
     recordblocking(a,30);
     b = getaudiodata(a);
     audiowrite('music4816Without.wav', b,48e3);
@@ -43,10 +41,9 @@ if(0)
     clc;
     close all;
     
-    [y, Fs] = audioread('music4816.wav');
-    sound(y,Fs);
-    
+    [y, Fs] = audioread('music4816.wav');    
     a = audiorecorder(48e3,16,1);
+    sound(y,Fs);    
     recordblocking(a,30);
     b = getaudiodata(a);
     audiowrite('music4816With.wav', b,48e3);
@@ -60,9 +57,10 @@ if(0)
     close all;
     
     [y, Fs] = audioread('background4816.wav');
-    sound(y,Fs);
+    
     
     a = audiorecorder(48e3,16,1);
+    sound(y,Fs);
     recordblocking(a,30);
     b = getaudiodata(a);
     audiowrite('background4816Without.wav', b,48e3);
@@ -76,9 +74,10 @@ if(0)
     close all;
     
     [y, Fs] = audioread('background4816.wav');
-    sound(y,Fs);
+    
     
     a = audiorecorder(48e3,16,1);
+    sound(y,Fs);
     recordblocking(a,30);
     b = getaudiodata(a);
     audiowrite('background4816With.wav', b,48e3);
@@ -92,9 +91,10 @@ if(0)
     close all;
     
     [y, Fs] = audioread('human4816.wav');
-    sound(y,Fs);
+    
     
     a = audiorecorder(48e3,16,1);
+    sound(y,Fs);
     recordblocking(a,30);
     b = getaudiodata(a);
     audiowrite('human4816Without.wav', b,48e3);
@@ -108,9 +108,10 @@ if(0)
     close all;
     
     [y, Fs] = audioread('human4816.wav');
-    sound(y,Fs);
+    
     
     a = audiorecorder(48e3,16,1);
+    sound(y,Fs);
     recordblocking(a,30);
     b = getaudiodata(a);
     audiowrite('human4816With.wav', b,48e3);
