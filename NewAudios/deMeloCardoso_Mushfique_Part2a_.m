@@ -8,7 +8,7 @@ order = 80;
 
 
 if(1)
-    order = 80;
+    order = 120;
     [d1,p1] = aryule(test_signal,order);
     figure;
     freqz(sqrt(p1),d1);
@@ -20,6 +20,23 @@ if(1)
     title("h(n) aryule method - denominator order = 80");
 
 end
+
+[originalMusic, FsOriginalMusic]=audioread('Music.wav');
+
+filteredOriginalMusic = filter(sqrt(p1),d1,originalMusic);
+
+% sound(filteredOriginalMusic,FsOriginalMusic);
+% audiowrite('filteredOriginalMusic.wav', filteredOriginalMusic,48e3);
+
+[MusicWith, FsMusicWith]=audioread('MusicWithout.wav');
+
+outputNoiseCancel = MusicWith-MusicWith;
+
+sound(outputNoiseCancel,48e3);
+
+
+
+
 
 
 return;
