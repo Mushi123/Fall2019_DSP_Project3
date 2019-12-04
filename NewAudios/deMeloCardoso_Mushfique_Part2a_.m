@@ -16,7 +16,8 @@ if(1)
     figure;
     zplane(sqrt(p1),d1);
     title("Z plane for order = 80");    
-    figure;
+    figure(); impz(sqrt(p1),d1);
+    title("h(n) aryule method - denominator order = 80");
 
 end
 
