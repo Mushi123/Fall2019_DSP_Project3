@@ -21,14 +21,14 @@ if(1)
 
 end
 
-[originalMusic, FsOriginalMusic]=audioread('Music.wav');
+[originalMusic, FsOriginalMusic]=audioread('BackgroundNoise.wav');
 
 filteredOriginalMusic = filter(sqrt(p1),d1,originalMusic);
 
 % sound(filteredOriginalMusic,FsOriginalMusic);
 % audiowrite('filteredOriginalMusic.wav', filteredOriginalMusic,48e3);
 
-[MusicWith, FsMusicWith]=audioread('MusicWith.wav');
+[MusicWith, FsMusicWith]=audioread('BackgroundNoiseWith.wav');
 
 outputNoiseCancel = filteredOriginalMusic(1324,:)-MusicWith;
 
@@ -38,3 +38,15 @@ return;
 
 clear sound;
 
+%% Cross correlation
+[xc,lags] = xcorr(test_signal,test_signalOriginal);
+[~,I] = max(abs(xc));
+figure
+stem(lags,xc,'filled')
+legend(sprintf('Maximum at lag %d',lags(I)))
+title('Sample Cross-Correlation Sequence')
+%%
+[originalMusic, FsOriginalMusic]=audioread('HumanSpeech.wav');
+audiowrite('testing_samplingrate.wav',originalMusic,48000);
+[t,f] = audioread('testing_samplingrate.wav')
+sound(t,f);
